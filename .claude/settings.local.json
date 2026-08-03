@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v chromium chromium-browser google-chrome google-chrome-stable)",
+      "Read(//home/db23153/.cache/**)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright ok'\\)}catch\\(e\\){console.log\\('no playwright'\\)}\")"
+    ]
+  }
+}
