@@ -11,15 +11,15 @@
 
 export const OPERATOR = {
   /** 運営者名(個人名 or 屋号 or 法人名) */
-  name: "（運営者名を記入してください）",
+  name: "渡辺喜介",
   /** 問い合わせ先メールアドレス。App Store の審査でも到達可能なものが必要 */
-  email: "（連絡先メールアドレスを記入してください）",
+  email: "wkisuke0122@icloud.com",
   /** 専属的合意管轄の基準になる所在地(例: 東京地方裁判所) */
-  court: "（運営者所在地を管轄する地方裁判所）",
+  court: "名古屋地方裁判所",
 } as const;
 
 /** 最終更新日。文面を変更したらここも必ず更新する */
-export const LEGAL_UPDATED_AT = "2026年7月27日";
+export const LEGAL_UPDATED_AT = "2026年8月1日";
 
 export type LegalSection = {
   heading: string;
@@ -123,7 +123,9 @@ export const TERMS_SECTIONS: LegalSection[] = [
   },
   {
     heading: "第4条（禁止事項）",
-    paragraphs: ["利用者は、本アプリの利用にあたり次の行為をしてはなりません。"],
+    paragraphs: [
+      "利用者は、本アプリの利用にあたり次の行為をしてはなりません。",
+    ],
     bullets: [
       "法令または公序良俗に違反する行為",
       "本アプリの逆コンパイル、改変、複製、再配布",
