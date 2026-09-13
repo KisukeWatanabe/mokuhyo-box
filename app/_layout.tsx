@@ -132,7 +132,7 @@ export default function RootLayout() {
     // 背景色を敷いておく。ここが素通しだと、下に何も描かれていないときに
     // 端末の白が見えてしまい、不具合なのか読み込み中なのか区別できない。
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: Palette.bg }}>
-      <StatusBar style="dark" backgroundColor={Palette.bg} />
+      <StatusBar style="dark" />
       <Stack
         screenOptions={{
           headerShown: false,

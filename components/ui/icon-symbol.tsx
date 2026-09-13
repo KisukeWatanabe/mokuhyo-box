@@ -5,7 +5,11 @@ import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
 import { ComponentProps } from 'react';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>;
+// expo-symbols(SDK 57)の `name` は SFSymbol 文字列に加えてプラットフォーム別の
+// オブジェクト形({ ios, android, web })も取るようになった。オブジェクトは
+// Record のキーに使えないので、文字列の形だけを取り出してマッピングの型にする。
+type IconSymbolNameKey = Extract<SymbolViewProps['name'], string>;
+type IconMapping = Record<IconSymbolNameKey, ComponentProps<typeof MaterialIcons>['name']>;
 type IconSymbolName = keyof typeof MAPPING;
 
 /**

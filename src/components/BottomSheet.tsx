@@ -75,7 +75,7 @@ export function BottomSheet({ visible, onClose, children }: Props) {
 const styles = StyleSheet.create({
   fill: { flex: 1, justifyContent: "flex-end" },
   backdrop: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: "rgba(64,55,42,0.35)",
   },
   sheet: {
