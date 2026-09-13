@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs } from "expo-router/js-tabs";
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, type ColorValue } from "react-native";
 
 import { HapticTab } from "@/components/haptic-tab";
 import { Fonts, Palette } from "@/constants/theme";
@@ -16,7 +16,7 @@ import { Fonts, Palette } from "@/constants/theme";
  * alignSelf:"stretch" でタブ項目の幅いっぱいを与えて、実測幅に依存させない。
  */
 function tabLabel(text: string) {
-  const Label = ({ color }: { color: string }) => (
+  const Label = ({ color }: { color: ColorValue }) => (
     <Text
       numberOfLines={1}
       allowFontScaling={false}

@@ -10,7 +10,9 @@ export function useThemeColor(
   props: { light?: string; dark?: string },
   colorName: keyof typeof Colors.light & keyof typeof Colors.dark
 ) {
-  const theme = useColorScheme() ?? 'light';
+  // RN 0.86 の ColorSchemeName は 'light' | 'dark' | 'unspecified'。
+  // 'unspecified'(端末が未設定)は Colors のキーに無いので light 扱いに寄せる。
+  const theme = useColorScheme() === 'dark' ? 'dark' : 'light';
   const colorFromProps = props[theme];
 
   if (colorFromProps) {

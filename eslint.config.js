@@ -5,6 +5,26 @@ const expoConfig = require('eslint-config-expo/flat');
 module.exports = defineConfig([
   expoConfig,
   {
-    ignores: ['dist/*'],
+    // dist はビルド成果物、.expo は expo が自動生成する型定義。
+    // どちらも手で書かないので lint の対象外。
+    ignores: ['dist/**', '.expo/**'],
+  },
+  {
+    // scripts/ 配下はアプリのバンドルには入らない Node の CommonJS スクリプト。
+    // Node のグローバルを認識させる。globals パッケージは間接依存でしか
+    // 入っていないため、依存を増やさないよう必要なものだけ直接並べている。
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        Buffer: 'readonly',
+        console: 'readonly',
+        module: 'writable',
+        process: 'readonly',
+        require: 'readonly',
+      },
+    },
   },
 ]);

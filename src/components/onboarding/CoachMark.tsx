@@ -140,7 +140,7 @@ export function CoachMark({ visible, targetRef, title, body, onClose }: Props) {
             />
           </>
         ) : (
-          <View style={[styles.dim, StyleSheet.absoluteFillObject]} />
+          <View style={[styles.dim, StyleSheet.absoluteFill]} />
         )}
 
         {/* 高さを測るまでは位置が決まらないので、チラつき防止で隠しておく */}
