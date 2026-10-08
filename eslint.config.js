@@ -27,4 +27,26 @@ module.exports = defineConfig([
       },
     },
   },
+  {
+    // テストは jest のグローバル(describe/it/expect/jest)を使う。
+    // eslint-config-expo はこれらを宣言しないため、ここで補う。
+    files: ['**/__tests__/**/*.ts', 'test/**/*.ts'],
+    languageOptions: {
+      globals: {
+        afterAll: 'readonly',
+        afterEach: 'readonly',
+        beforeAll: 'readonly',
+        beforeEach: 'readonly',
+        describe: 'readonly',
+        expect: 'readonly',
+        it: 'readonly',
+        jest: 'readonly',
+        test: 'readonly',
+      },
+    },
+    rules: {
+      // jest.mock の差し替えは require() で書くのが定石(ホイストの都合)
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 ]);
