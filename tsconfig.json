@@ -2,6 +2,11 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    // jest のグローバル(describe/it/expect/jest)を型解決させる。
+    // この構成では node_modules/@types/* の自動取り込みが働いていない
+    // (tsc --listFiles で確認。取り込まれるのは import 経由の @types/react のみ)
+    // ため、必要なものを明示する。
+    "types": ["jest"],
     "paths": {
       "@/*": [
         "./*"
